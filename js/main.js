@@ -2,7 +2,7 @@
 
 var canvas = new fabric.Canvas('c');        
 
-document.getElementById('image-input').onchange = function uploadToCanvas(e) {
+document.getElementById('image-input').onchange = function(e) {
     var reader = new FileReader();
 
     reader.onload = function (event){
@@ -22,3 +22,14 @@ document.getElementById('image-input').onchange = function uploadToCanvas(e) {
     }
     reader.readAsDataURL(e.target.files[0]);
 }
+
+document.getElementById('insert-txt').onclick = function(e) {
+  let textbox = new fabric.Textbox('Lorum ipsum dolor sit amet', {
+    left: 50,
+    top: 50,
+    width: 150,
+    fontSize: 20
+  });
+  canvas.add(textbox).setActiveObject(textbox);
+}
+
