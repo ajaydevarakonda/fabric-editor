@@ -3,11 +3,10 @@
 var canvas = new fabric.Canvas('c');
 var canvasAsJSONString;     
 
-// uploading image
-document.getElementById('image-input').onchange = function(e) {
-  var reader = new FileReader();
+function uploadImageToCanvas(canvas, imageFileObject) {
+  let imgReader = new FileReader();
 
-  reader.onload = function (event){
+  imgReader.onload = function (event){
     var imgObj = new Image();
     imgObj.src = event.target.result;
     
@@ -22,7 +21,14 @@ document.getElementById('image-input').onchange = function(e) {
       canvas.renderAll();
     }
   }
-  reader.readAsDataURL(e.target.files[0]);
+  imgReader.readAsDataURL(imageFileObject);
+}
+
+// uploading image
+document.getElementById('image-input').onchange = function(e) {
+  for (let i = 0; i < e.target.files.length; ++i) {
+    uploadImageToCanvas(canvas, e.target.files[i])
+  }
 }
 
 // inserting text
