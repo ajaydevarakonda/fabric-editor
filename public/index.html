@@ -6,15 +6,22 @@
     </style>    
 </head>
 <body>
-    <canvas id="c" height="500" width="500" style="border: 1px solid #000"></canvas>
-    <br>
-    <div>
-        <input type="file" id="image-input" multiple>
-        <button id="insert-txt">Insert text</button>
-        <button id="save">Save</button>
-        <button id="reopen">Re-open last</button>        
+    <div id="wrapper">
+        <canvas id="c" height="500" width="500" style="border: 1px solid #000"></canvas>
+        <br>
+        <div>
+            <input type="file" id="image-input" multiple>
+            <button id="insert-txt">Insert text</button>
+            <button id="save">Save</button>
+            <button id="reopen">Re-open last</button>        
+
+        </div>
     </div>
-    
+    <div>
+        <br><br>
+        <button id="undo">Undo</button>        
+        <button id="redo">Redo</button>                    
+    </div>    
     <script type="text/javascript" src="/js/fabric.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
 </body>
